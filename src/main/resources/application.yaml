@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: sd-case-management-financial-crime
+
+server:
+  port: 8080
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true   # /actuator/health/liveness + /readiness for K8s probes
+  info:
+    env:
+      enabled: true
+
+info:
+  bian:
+    serviceDomain: "Case Management Financial Crime"
+    businessArea: "Risk and Compliance"
+    businessDomain: "Financial Crime"
+    functionalPattern: "Manage"
+    assetType: "Financial Crime Case"
+    controlRecord: "Financial Crime Case Management Plan"
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      serviceDomain:
+        slidingWindowSize: 20
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

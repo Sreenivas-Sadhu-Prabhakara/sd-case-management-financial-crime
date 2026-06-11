@@ -1,0 +1,14 @@
+apiVersion: v2
+name: sd-case-management-financial-crime
+description: "BIAN Service Domain: Case Management Financial Crime (Manage pattern, Risk and Compliance)"
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+keywords:
+  - bian
+  - manage
+annotations:
+  bian/business-area: "Risk and Compliance"
+  bian/business-domain: "Financial Crime"
+  bian/asset-type: "Financial Crime Case"
+  bian/control-record: "Financial Crime Case Management Plan"
